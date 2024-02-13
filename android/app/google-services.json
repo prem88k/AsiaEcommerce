@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "331226896859",
+    "project_id": "asiaonline-8db6d",
+    "storage_bucket": "asiaonline-8db6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331226896859:android:c0d647b96082669951affe",
+        "android_client_info": {
+          "package_name": "com.asiaonline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "331226896859-6lq87hnur2kksc61rdfb62mi8sno4srf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.asiaonline",
+            "certificate_hash": "1005ca7ff78a64123caeee6dd865a220ddce0780"
+          }
+        },
+        {
+          "client_id": "331226896859-l7mob2bqfbfuhjpmpbrerb0mhj6793sa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACYiiKTfDsAuMevM6F9JuXLbm4OW1u3Hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "331226896859-l7mob2bqfbfuhjpmpbrerb0mhj6793sa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
