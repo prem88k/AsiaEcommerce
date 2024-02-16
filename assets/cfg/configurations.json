@@ -1,5 +1,5 @@
 {
-  "base_url": "https://chitfinder.com/api/",
-  "api_base_url": "https://chitfinder.com/api/front/",
-  "url": "https://chitfinder.com"
+  "base_url": "chitfinder.com/api/",
+  "api_base_url": "chitfinder.com/api/front/",
+  "url": "chitfinder.com"
 }
