@@ -250,7 +250,7 @@ class LoginPageState extends State<LoginPage> {
     map['phone'] = addCountryCode(phonenumberController.text.trim());
 
     print(map.toString() + "send otp..............");
-    var url = Uri.https(GlobalConfiguration().getString('url'),'/api/front/user/login');
+    var url = Uri.https(GlobalConfiguration().getString('url'),'/api/user/login');
     print(url);
 
     setState(() {

@@ -9,11 +9,10 @@ import 'package:http/http.dart' as http;
 Future<ProductDetailResponse> getProducatDetail(String id) async {
 
 //  id = "32";
-  var url = Uri.https(GlobalConfiguration().getString('url'),'/api/product/$id/details');
-  print('url $url');
-
-  var response = await http.get(url);
-
+  var url = Uri.https(GlobalConfiguration().getString('url'),'/api/front/product/$id/details');
+  print('url:: $url');
+  var response = await http.post(url);
+  print(response.statusCode);
   if (response.statusCode == 200) {
     String response_json_str = response.body;
     print(response_json_str + "..............");

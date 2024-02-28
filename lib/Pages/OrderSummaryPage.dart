@@ -136,6 +136,7 @@ class OrderSummaryPageState extends State<OrderSummaryPage>
           Container(
             color: Colors.white70,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

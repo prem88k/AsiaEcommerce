@@ -272,6 +272,7 @@ class OfferGrid extends StatelessWidget {
           ),
         ),
         onTap: () {
+          print("------Details-----${blockBustorDeal.id.toString()}");
           Navigator.of(context).pushNamed(ProductDetailPage.routeName,
               arguments: new RouteArgument(
                   id: blockBustorDeal.id.toString(), heroTag: blockBustorDeal.title));

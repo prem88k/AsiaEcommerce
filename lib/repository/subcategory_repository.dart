@@ -6,10 +6,11 @@ import 'package:http/http.dart' as http;
 import 'package:pocketuse/model/SubCategory.dart';
 
 Future<Stream<SubCategory>> getSubCategories(String id) async {
-  final String url = '${GlobalConfiguration().getString('api_base_url')}$id/subcategory_list';
+ // final String url = '${GlobalConfiguration().getString('base_url')}$id/subcategory_list';
+  var url = Uri.https(GlobalConfiguration().getString('url'),'/api/front/$id/subcategory_list');
 
   final client = new http.Client();
-  final streamedRest = await client.send(http.Request('get', Uri.parse(url)));
+  final streamedRest = await client.send(http.Request('get', url));
   print('subcategory_list url $url');
 
   return streamedRest.stream

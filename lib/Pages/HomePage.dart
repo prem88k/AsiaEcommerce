@@ -215,7 +215,6 @@ class HomePageState extends State<HomePage>{
                         SizedBox(
                           height: 6.0,
                         ),
-
                         // Block Buster Deals Start Here
                         BlockBusterDeals(_HomePageCategoriWiseProducts[index]),
                       ],

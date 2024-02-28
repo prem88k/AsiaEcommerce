@@ -558,12 +558,12 @@ class CommonWidget{
   }
   static Widget getloadingBulder(ImageChunkEvent loadingProgress) {
    return Center(
-//     child: CircularProgressIndicator(
-//       value: loadingProgress.expectedTotalBytes != null ?
-//       loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes
-//           : null,
-//     ),
-   child: getIconImgeWithCustomSize("assets/images/placeholder2.png", 30),
+    child: CircularProgressIndicator(
+      value: loadingProgress.expectedTotalBytes != null ?
+      loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes
+          : null,
+    ),
+   //child: getIconImgeWithCustomSize("assets/images/pocketuse_logo.png", 30),
 //   child: getIconImgeWithCustomSize("assets/images/person_placeholder.jpg", 30),
    );
   }

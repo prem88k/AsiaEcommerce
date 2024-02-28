@@ -48,7 +48,7 @@ class ProductDetailPage extends StatefulWidget {
 }
 
 class ProductDetailPageState extends StateMVC<ProductDetailPage> implements FavouriteCallBack{
-  ProductDetailResponse _productDetail ;
+  ProductDetailResponse _productDetail = null;
 
   String firstSelection;
   String secondSelection;
@@ -71,6 +71,41 @@ class ProductDetailPageState extends StateMVC<ProductDetailPage> implements Favo
 //        .getProducatDetail("1")
         .getProducatDetail(widget.routeArgument.id)
         .then((productDetail) {
+      setState(() {
+
+        _productDetail = productDetail;
+
+        if(_productDetail.first_image != null && _productDetail.first_image.isNotEmpty){
+          _productDetail.images.add(new Images(789,_productDetail.first_image));
+        }
+
+        if (_productDetail.variations_data.variations.length > 0) {
+          firstSelection = _productDetail.variations_data.variations[0].attribute_options[0];
+          firstSelectionCode = _productDetail.variations_data.variations[0].attribute_code;
+        }
+
+        if (_productDetail.variations_data.variations.length > 1) {
+          secondSelection = _productDetail.variations_data.variations[1].attribute_options[0];
+          secondSelectionCode = _productDetail.variations_data.variations[1].attribute_code;
+        }
+
+        if (_productDetail.variations_data.variations.length > 2) {
+          thirdSelection = _productDetail.variations_data.variations[2].attribute_options[0];
+          thirdSelectionCode = _productDetail.variations_data.variations[2].attribute_code;
+        }
+
+        _combinations = _productDetail.variations_data.combinations;
+
+        if(_productDetail.attributes != null && _productDetail.attributes.isNotEmpty){
+          List<GroupObj> lis = _productDetail.attributes;
+
+          for(int k=0; k< lis.length; k++){
+            group_data_list.addAll(lis[k].group_data);
+          }
+        }
+
+        CurrentPrice = _productDetail.current_price.toString();
+      });
     });
   }
   CartCountProvider appState = null;
@@ -1320,5 +1355,8 @@ class ProductDetailPageState extends StateMVC<ProductDetailPage> implements Favo
 ////                                                                 MyRequestcompletedObjList[index].transporter_name
 //                this)
 //    );
-  }}
+  }
+
+
+}
 
