@@ -142,7 +142,7 @@ class MyAddressListPageState extends StateMVC<MyAddressListPage> implements Upda
     return true;
   }
   Future<void> getAddress() async {
-    var url = Uri.https(GlobalConfiguration().getString('url'),'/api/front/user/addresses');
+    var url = Uri.https(GlobalConfiguration().getString('url'),'/api/user/addresses');
 
     print('url $url');
     print('api_authentication_token== '+Consts.api_authentication_token);
@@ -152,7 +152,7 @@ class MyAddressListPageState extends StateMVC<MyAddressListPage> implements Upda
     };
 
     var response = await http.get(url, headers: requestHeaders);
-    print('statusCode== '+response.statusCode.toString());
+    print('statusCode1== '+response.statusCode.toString());
 
     if (response.statusCode == 200) {
       String response_json_str = response.body;

@@ -8,6 +8,7 @@ import 'package:pocketuse/model/Productlist_route_argument.dart';
 import 'package:pocketuse/model/CategorieWiseProductPackage/HomePageCategoriWiseProducts.dart';
 import 'package:pocketuse/model/route_argument.dart';
 import 'package:pocketuse/widgets/CommonWidget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 
 
@@ -41,6 +42,19 @@ class TopImage extends StatelessWidget {
 //        Image(
 //          image: AssetImage('assets/gokartImages/top_design/block_buster_deals.jpg'),
 //        ),
+
+        CachedNetworkImage(
+          imageUrl: homeCategorieWiseProduct.background_image,
+          fit: BoxFit.cover,
+          progressIndicatorBuilder:
+              (context, url, downloadProgress) =>
+              getIconImgeWithCustomSize("assets/images/placeholder2.png", 45),
+
+          errorWidget: (context, url, error) => Icon(
+            Icons.error,
+            color: Colors.red,
+          ),
+        ),
         Image.network(homeCategorieWiseProduct.background_image,
           loadingBuilder:(BuildContext context, Widget child,ImageChunkEvent loadingProgress) {
             if (loadingProgress == null) return child;
@@ -117,7 +131,10 @@ class TopImage extends StatelessWidget {
       ],
     );
   }
-}
+
+  static Widget getIconImgeWithCustomSize(String str, double size) {
+    return Image(image: AssetImage(str), height: size, width: size,);
+  }}
 
 class OfferGrid extends StatelessWidget {
 //  final blockBustorDealList = [
@@ -171,11 +188,18 @@ class OfferGrid extends StatelessWidget {
               Container(
                 margin: EdgeInsets.all(6.0),
                 height: 120.0,
-                child: Image.network(blockBustorDeal.thumbnail, fit: BoxFit.fill,
-                  loadingBuilder:(BuildContext context, Widget child,ImageChunkEvent loadingProgress) {
-                    if (loadingProgress == null) return child;
-                    return CommonWidget.getloadingBulder(loadingProgress);
-                  },),
+                child:   CachedNetworkImage(
+                  imageUrl:blockBustorDeal.thumbnail,
+                  fit: BoxFit.cover,
+                  progressIndicatorBuilder:
+                      (context, url, downloadProgress) =>
+                      getIconImgeWithCustomSize("assets/images/placeholder2.png", 45),
+
+                  errorWidget: (context, url, error) => Icon(
+                    Icons.error,
+                    color: Colors.red,
+                  ),
+                ),
 //                Image(
 //                  image: AssetImage(item['image']),
 //                  fit: BoxFit.fitWidth,
@@ -325,5 +349,8 @@ class OfferGrid extends StatelessWidget {
         ),
       ],
     );
+  }
+  static Widget getIconImgeWithCustomSize(String str, double size) {
+    return Image(image: AssetImage(str), height: size, width: size,);
   }
 }

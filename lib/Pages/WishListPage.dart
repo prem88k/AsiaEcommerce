@@ -151,7 +151,7 @@ class WishListPageState extends StateMVC<WishListPage> implements CAllBackOfSort
 
   Future<void> getfavProducts() async {
     print('url '+Consts.api_authentication_token);
-    var url = Uri.https(GlobalConfiguration().getString('url'),'/api/user/wishlists?sort=$sort');
+    var url = Uri.https(GlobalConfiguration().getString('url'),'/api/user/wishlists?sort=price_asc');
 
 //        '?highlight''=$highlight&limit=$limit&type=$type&product_type=$product_type&paginate=$paginate';
 

@@ -645,7 +645,7 @@
     },
     {
       "name": "provider",
-      "rootUri": "file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/provider-6.1.1",
+      "rootUri": "file:///C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/provider-6.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -914,7 +914,7 @@
       "languageVersion": "2.5"
     }
   ],
-  "generated": "2024-02-27T04:06:30.569389Z",
+  "generated": "2024-02-29T13:45:52.782480Z",
   "generator": "pub",
   "generatorVersion": "2.19.6"
 }

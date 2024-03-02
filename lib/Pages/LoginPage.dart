@@ -230,9 +230,9 @@ class LoginPageState extends State<LoginPage> {
   String addCountryCode(String phone) {
     if(phone != null && phone.isNotEmpty && phone.startsWith('+91')){
       return phone.replaceFirst('+91', '');
-    } else if(phone != null && phone.isNotEmpty &&  phone.startsWith('91')){
+    } /*else if(phone != null && phone.isNotEmpty &&  phone.startsWith('91')){
       return phone.replaceFirst('91', '');
-    } else{
+    } */else{
       return phone;
     }
   }

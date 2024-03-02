@@ -6,6 +6,7 @@ import 'package:pocketuse/model/HomeBestSaleItem.dart';
 import 'package:pocketuse/model/ProductListArgument.dart';
 import 'package:pocketuse/model/Productlist_route_argument.dart';
 import 'package:pocketuse/widgets/CommonWidget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 // My Own Imports
 
@@ -28,11 +29,18 @@ class BestDealGrid extends StatelessWidget {
     InkWell getStructuredGridCell(bestDeal) {
       final item = bestDeal;
       return InkWell(
-        child: Image.network(item.image,fit: BoxFit.fill,
-          loadingBuilder:(BuildContext context, Widget child,ImageChunkEvent loadingProgress) {
-            if (loadingProgress == null) return child;
-            return CommonWidget.getloadingBulder(loadingProgress);
-          }, ),
+        child:  CachedNetworkImage(
+          imageUrl:item.image,
+          fit: BoxFit.cover,
+          progressIndicatorBuilder:
+              (context, url, downloadProgress) =>
+              getIconImgeWithCustomSize("assets/images/placeholder2.png", 100),
+
+          errorWidget: (context, url, error) => Icon(
+            Icons.error,
+            color: Colors.red,
+          ),
+        ),
 //        Image(
 //          image: AssetImage(item['image']),
 //          fit: BoxFit.fitHeight,
@@ -68,4 +76,8 @@ class BestDealGrid extends StatelessWidget {
       ),
     );
   }
-}
+
+  static Widget getIconImgeWithCustomSize(String str, double size) {
+    return Image(image: AssetImage(str), height: size, width: size,);
+  }}
+
