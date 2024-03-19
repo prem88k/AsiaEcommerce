@@ -52,11 +52,13 @@ class OrderSummaryPageState extends State<OrderSummaryPage>
   String customer_email = '';
 
   List<Products> products = null;
+  String cart_id = "";
+
   String sub_total = '';
   String total_amount = '';
   String delivery = '';
   String discount = '';
-
+  Products g;
   String address_title = '';
   String address_description = '';
   String address_phone = '';
@@ -298,12 +300,13 @@ class OrderSummaryPageState extends State<OrderSummaryPage>
 
         for (int i = 0; i < resultList.length; i++) {
           Object obj = resultList[i];
-          Products g = new Products.fromJsonMap(obj);
+          g = new Products.fromJsonMap(obj);
           mycategoriesList[i] = g;
         }
 
         setState(() {
           products = mycategoriesList;
+          cart_id=userMap['products'][0]['cart_id'].toString();
           sub_total = userMap['sub_total'];
           total_amount = userMap['total_amount'];
           discount = userMap['discount'];
@@ -406,7 +409,7 @@ class OrderSummaryPageState extends State<OrderSummaryPage>
                       borderRadius: BorderRadius.all(Radius.circular(2.0))),
                   padding: const EdgeInsets.fromLTRB(15, 7, 15, 7),
                   child: new Text(
-                      'Please check if the address is suitaable for collecting delivery',
+                      'Please check if the address is suitable for collecting delivery',
                       style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
@@ -651,6 +654,8 @@ class OrderSummaryPageState extends State<OrderSummaryPage>
     var card = new CheckOutBeforePaymentApi();
     card.address_id = address_id.isNotEmpty ? int.parse(address_id) : 0;
     card.user_id = CommonWidget.StringConvertintiInt(Consts.current_userid);
+    card.cart_id = cart_id;
+
     if(Iscash_on_delivery && _radioValue == 0){
       card.payment_method = "cash_on_delivery" ;
     } else{

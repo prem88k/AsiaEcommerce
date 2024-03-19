@@ -268,7 +268,7 @@ class MyAccountPageState extends State<MyAccountPage> {
 //                        height: 10,
 //                        color: Colors.grey[300],
 //                      ),
-                      Container(
+                   /*   Container(
                         color: Colors.white,
                         child: Padding(
                           padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
@@ -291,11 +291,11 @@ class MyAccountPageState extends State<MyAccountPage> {
                             ],
                           ),
                         ),
-                      ),
-                      Container(
+                      ),*/
+                      /*Container(
                         height: 10,
                         color: Colors.grey[300],
-                      ),
+                      ),*/
                       Container(
                         color: Colors.white,
                         child: Padding(

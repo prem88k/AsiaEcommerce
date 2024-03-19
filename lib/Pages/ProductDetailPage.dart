@@ -30,6 +30,7 @@ import 'package:http/http.dart' as http;
 import 'package:pocketuse/widgets/ShoppingCartButtonWidget.dart';
 import 'package:provider/provider.dart';
 
+import 'AllSellerProductsPage.dart';
 import 'MyCartListPage.dart';
 import 'OrderSummaryPage.dart';
 import 'ReturnPolicyPage.dart';
@@ -660,20 +661,31 @@ class ProductDetailPageState extends StateMVC<ProductDetailPage> implements Favo
                           SizedBox(
                             height: 15,
                           ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                            child: Row(
-                              children: [
-                                Text(
-                                  CommonWidget.replaceNullWithEmpty(_productDetail.shop.name),
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      color: Consts.app_primary_color,
-                                      fontSize: 13),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return AllSellerProductPage(_productDetail.shop.name);
+                                  },
                                 ),
-                                SizedBox(
-                                  width: 6,
-                                ),
+                              );
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    CommonWidget.replaceNullWithEmpty(_productDetail.shop.name),
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        color: Consts.app_primary_color,
+                                        fontSize: 13),
+                                  ),
+                                  SizedBox(
+                                    width: 6,
+                                  ),
 //                          Container(
 //                            padding: EdgeInsets.fromLTRB(10, 3, 10, 3),
 //                            decoration: BoxDecoration(
@@ -696,7 +708,8 @@ class ProductDetailPageState extends StateMVC<ProductDetailPage> implements Favo
 //                              ],
 //                            ),
 //                          ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -765,7 +778,9 @@ class ProductDetailPageState extends StateMVC<ProductDetailPage> implements Favo
                               height: 8,
                             ),
                             Html(
-                                data:_productDetail.details
+                                data:_productDetail.details,
+                              shrinkWrap: true,
+
                             )
 //                          Text(
 //                            CommonWidget.replaceNullWithEmpty(_productDetail.details),
@@ -1143,11 +1158,11 @@ class ProductDetailPageState extends StateMVC<ProductDetailPage> implements Favo
       padding: EdgeInsets.fromLTRB(0, 0, 13, 0),
       child: InkWell(
         child: Container(
-          width: 45,
-          height: 25,
+          padding: EdgeInsets.only(left: 15,right: 15,top:7,bottom:7),
           decoration: BoxDecoration(
+
             color: s == firstSelection ? Colors.blueAccent : Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(2.0)),
+            borderRadius: BorderRadius.all(Radius.circular(5.0)),
             border: new Border.all(
               color: s == firstSelection ? Colors.blueAccent : Colors.black26,
               width: 0.5,
@@ -1172,11 +1187,11 @@ class ProductDetailPageState extends StateMVC<ProductDetailPage> implements Favo
       padding: EdgeInsets.fromLTRB(0, 0, 13, 0),
       child: InkWell(
         child: Container(
-          width: 45,
-          height: 25,
+          padding: EdgeInsets.only(left: 15,right: 15,top:7,bottom:7),
+
           decoration: BoxDecoration(
             color: s == secondSelection ? Colors.blueAccent : Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(2.0)),
+            borderRadius: BorderRadius.all(Radius.circular(5.0)),
             border: new Border.all(
               color: s == secondSelection ? Colors.blueAccent : Colors.black26,
               width: 0.5,
@@ -1201,11 +1216,11 @@ class ProductDetailPageState extends StateMVC<ProductDetailPage> implements Favo
       padding: EdgeInsets.fromLTRB(0, 0, 13, 0),
       child: InkWell(
         child: Container(
-          width: 45,
-          height: 25,
+          padding: EdgeInsets.only(left: 15,right: 15,top:7,bottom:7),
+
           decoration: BoxDecoration(
             color: s == thirdSelection ? Colors.blueAccent : Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(2.0)),
+            borderRadius: BorderRadius.all(Radius.circular(5.0)),
             border: new Border.all(
               color: s == thirdSelection ? Colors.blueAccent : Colors.black26,
               width: 0.5,

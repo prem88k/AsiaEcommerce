@@ -169,7 +169,7 @@ class LoginPageState extends State<LoginPage> {
                             alignment: Alignment.centerRight,
                             child: InkWell(
                               child: Text(
-                                'Now to '+Consts.app_name+"? Create an account",
+                                'New to '+Consts.app_name+"? Create an account",
                                 style: TextStyle(
                                     color: Consts.app_primary_color,
                                     fontWeight: FontWeight.w400,

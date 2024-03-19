@@ -133,7 +133,7 @@ class FavouriteWidgetState extends State<FavouriteWidget>{
           msg: 'Add To Wishlist Successfully',
           backgroundColor: Colors.black,
           textColor: Colors.white,);
-
+        if(!mounted) return;
         setState(() {
           widget.in_wishlist =1;
         });

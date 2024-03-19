@@ -7,11 +7,11 @@ import 'package:http/http.dart' as http;
 import 'package:pocketuse/model/CommanModal.dart';
 
 Future<Stream<CategoryModel>> getCategories() async {
-  final String url = '${GlobalConfiguration().getString('api_base_url')}category_list';
-  print('url $url');
+  var url = Uri.https(
+      GlobalConfiguration().getString('url'), '/api/front/category_list');  print('url $url');
   final client = new http.Client();
 
-  final streamedRest = await client.send(http.Request('get', Uri.parse(url)));
+  final streamedRest = await client.send(http.Request('get', url));
 
   return streamedRest.stream
       .transform(utf8.decoder)

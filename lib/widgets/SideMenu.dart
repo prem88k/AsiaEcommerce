@@ -142,15 +142,15 @@ class MainDrawerState extends State<MainDrawer> {
 //                      ),
               InkWell(
                 onTap: () {
-                  Navigator.of(widget.ccontext).pop();
-
+                  /*Navigator.of(widget.ccontext).pop();
+                    print(Consts.Is_user_login);
                   if (!Consts.Is_user_login) {
                     Navigator.of(widget.ccontext).pushNamed(
                         LoginPage.routeName,  arguments: new RouteArgument(id: MyAccountPage.routeName));
                   } else{
                     Navigator.of(context).pushNamed(LoginPage.routeName,  arguments: new RouteArgument(id: MyAccountPage.routeName ));
 
-                  }
+                  }*/
                 },
                 child: Container(
                   height: 90,
@@ -183,7 +183,7 @@ class MainDrawerState extends State<MainDrawer> {
 
                         Expanded(
                           child: Text(
-                            Consts.Is_user_login ? Consts.current_phonenumber :"Login",
+                            Consts.Is_user_login ? Consts.current_username!=null?Consts.current_username:Consts.current_phonenumber :"Login",
 //                        customer_name.toUpperCase(),
                             style: TextStyle(
                                 fontSize: 16,

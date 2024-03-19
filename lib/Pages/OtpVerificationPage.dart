@@ -15,6 +15,7 @@ import 'package:pocketuse/model/route_argument.dart';
 import 'package:pocketuse/widgets/CommonWidget.dart';
 import 'package:http/http.dart' as http;
 
+import 'HomePage.dart';
 import 'MyAccountPage.dart';
 
 class  EditableTextFocusNode extends FocusNode {
@@ -355,7 +356,9 @@ class OtpVerificationPageState extends State<OtpVerificationPage> {
 
         if(widget.routeArgument.param != null && widget.routeArgument.param.toString().isNotEmpty){
           Navigator.pop(context);
-          Navigator.of(context).pushReplacementNamed(widget.routeArgument.param.toString());
+        //  Navigator.of(context).pushReplacementNamed(widget.routeArgument.param.toString());
+          Navigator.of(context).pushReplacementNamed(HomePage.routeName);
+
         } else{
           Navigator.pop(context);
           Navigator.pop(context);
